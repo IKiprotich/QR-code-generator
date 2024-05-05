@@ -18,8 +18,9 @@ def qr_generator():
     img = qr.make_image(fill_color="black", back_color="white")
     img.save("Qrcode.png")
 
-    qr_image = Image.open("Qrcode.png")
     qr_image = qr_image.resize((200, 200), Image.ANTIALIAS)
+    photo = ImageTk.PhotoImage(qr_image)
+
     photo = ImageTk.PhotoImage(qr_image)
     qr_label.config(image=photo)
     qr_label.photo = photo
