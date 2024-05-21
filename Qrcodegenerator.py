@@ -18,10 +18,9 @@ def qr_generator():
     img = qr.make_image(fill_color="black", back_color="white")
     img.save("Qrcode.png")
 
-    qr_image = qr_image.resize((200, 200), Image.ANTIALIAS)
-    photo = ImageTk.PhotoImage(qr_image)
+    img_resized = img.resize((200, 200), Image.ANTIALIAS)
+    photo = ImageTk.PhotoImage(img_resized)
 
-    photo = ImageTk.PhotoImage(qr_image)
     qr_label.config(image=photo)
     qr_label.photo = photo
     message_label.config(text="Fast QR code generation")
@@ -46,6 +45,3 @@ qr_label = tk.Label(app)
 qr_label.pack()
 
 app.mainloop()
-
-
-
